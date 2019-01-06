@@ -17,5 +17,5 @@ RUN apt-get update && \
 COPY run.sh /
 RUN chmod 755 /run.sh
 
-EXPOSE 80
+#EXPOSE 80
 CMD ["/run.sh"]
