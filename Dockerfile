@@ -14,5 +14,8 @@ RUN apt-get update && \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
     libtemplate-perl mariadb-server
 
+COPY run.sh /
+RUN chmod 755 /run.sh
+
 EXPOSE 80
 CMD ["/run.sh"]
