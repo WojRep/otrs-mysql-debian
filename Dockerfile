@@ -1,5 +1,6 @@
+#
 FROM debian:9-slim
-MAINTANER „Wojciech Repiński” <tech@actuna.com>
+MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 
 RUN apt-get update && \
     apt-get install -y supervisor \
@@ -11,5 +12,7 @@ RUN apt-get update && \
     libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl \
     libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
-    libtemplate-perl
+    libtemplate-perl mariadb-server
 
+EXPOSE 80
+CMD ["/run.sh"]
