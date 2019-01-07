@@ -29,7 +29,9 @@ COPY etc /etc/
 
 VOLUME /var/lib/mysql
 COPY mysql.sh /
-RUN chmod 755 /mysql.sh
+RUN chmod 755 /mysql.sh && \ 
+	/mysql.sh
+
 
 #
 # OTRS
@@ -39,7 +41,8 @@ RUN mkdir -p /opt/otrs &&\
 	unzip otrs-6.0.15.zip
 
 COPY otrs.sh /
-RUN chmod 755 /otrs.sh
+RUN chmod 755 /otrs.sh && \
+	/otrs.sh
 
 
 
