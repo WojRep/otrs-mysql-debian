@@ -4,6 +4,7 @@ MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 
 # OTRS_INSTALL=yes ; tylko instaluje gołego OTRS
 # OTRS_INSTALL=no ; nadpisuje katalog i używa bazy mysql
+ENV OTRS_INSTALL=no
 
 RUN apt-get update && \
     apt-get install -y supervisor \
@@ -22,7 +23,7 @@ COPY etc /etc/
 
 
 COPY otrs.sh /
-RUN chmod 755 /mysql.sh
+RUN chmod 755 /otrs.sh
 
 COPY otrs.sh /
 RUN chmod 755 /mysql.sh
