@@ -12,10 +12,15 @@ RUN apt-get update && \
     libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl \
     libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
-    libtemplate-perl mariadb-server
+    libtemplate-perl mariadb-server supervisor
+
+
+COPY etc /etc/
+
+
 
 COPY run.sh /
 RUN chmod 755 /run.sh
 
 #EXPOSE 80
-CMD ["/run.sh"]
+CMD ["/usr/bin/supervisord”,” -c /etc/supervisord.conf"]
