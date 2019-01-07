@@ -25,12 +25,13 @@ RUN mkdir -p /var/run/mysqld && \
 COPY etc /etc/
 
 VOLUME /var/lib/mysql
+COPY mysql.sh /
+RUN chmod 755 /mysql.sh
 
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh
 
-COPY mysql.sh /
-RUN chmod 755 /mysql.sh
+
 
 EXPOSE 80
 CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
