@@ -2,6 +2,9 @@
 FROM debian:9-slim
 MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 
+# OTRS_INSTALL=yes ; tylko instaluje gołego OTRS
+# OTRS_INSTALL=no ; nadpisuje katalog i używa bazy mysql
+
 RUN apt-get update && \
     apt-get install -y supervisor \
     apt-utils \
@@ -18,9 +21,11 @@ RUN apt-get update && \
 COPY etc /etc/
 
 
+COPY otrs.sh /
+RUN chmod 755 /mysql.sh
 
-COPY run.sh /
-RUN chmod 755 /run.sh
+COPY otrs.sh /
+RUN chmod 755 /mysql.sh
 
-#EXPOSE 80
+EXPOSE 80
 CMD ["/usr/bin/supervisord”,” -c /etc/supervisord.conf"]
