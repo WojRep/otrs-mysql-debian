@@ -16,7 +16,7 @@ RUN apt-get update && \
     libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl \
     libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
-    libtemplate-perl mariadb-server supervisor
+    libtemplate-perl mariadb-server
 
 
 COPY etc /etc/
@@ -25,7 +25,7 @@ COPY etc /etc/
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh
 
-COPY otrs.sh /
+COPY mysql.sh /
 RUN chmod 755 /mysql.sh
 
 EXPOSE 80
