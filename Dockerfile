@@ -18,6 +18,7 @@ RUN apt-get update && \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
     libtemplate-perl mariadb-server cron ssmtp apache2 rsyslog
 
+RUN mkdir -p /var/run/mysqld
 
 COPY etc /etc/
 
@@ -29,5 +30,5 @@ COPY mysql.sh /
 RUN chmod 755 /mysql.sh
 
 EXPOSE 80
-CMD /usr/bin/supervisord -c /etc/supervisord.conf
+CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
