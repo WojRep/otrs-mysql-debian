@@ -18,7 +18,9 @@ RUN apt-get update && \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
     libtemplate-perl mariadb-server cron ssmtp apache2 rsyslog
 
-RUN mkdir -p /var/run/mysqld
+RUN mkdir -p /var/run/mysqld && \ 
+	chmod 777 /var/run/mysqld && \
+	chmod +t /var/run/mysqld
 
 COPY etc /etc/
 
