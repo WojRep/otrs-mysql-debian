@@ -24,6 +24,7 @@ RUN mkdir -p /var/run/mysqld && \
 
 COPY etc /etc/
 
+VOLUME /var/lib/mysql
 
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh
