@@ -29,4 +29,5 @@ COPY mysql.sh /
 RUN chmod 755 /mysql.sh
 
 EXPOSE 80
-CMD /usr/bin/supervisord
+CMD /usr/bin/supervisord -c /etc/supervisord.conf
+
