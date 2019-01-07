@@ -24,9 +24,19 @@ RUN mkdir -p /var/run/mysqld && \
 
 COPY etc /etc/
 
+#
+# MaraDB
+
 VOLUME /var/lib/mysql
 COPY mysql.sh /
 RUN chmod 755 /mysql.sh
+
+#
+# OTRS
+
+RUN mkdir -p /opt/otrs &&\
+	curl -o /opt/otrs-6.0.15.zip http://ftp.otrs.org/pub/otrs/otrs-6.0.15.zip && \
+	unzip otrs-6.0.15.zip
 
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh
