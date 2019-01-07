@@ -1,4 +1,10 @@
 #!/bin/bash
 #
-echo "1"
+
+
+if [ "OTRS_INSTALL” == "yes”  ]; then
+
+mysql_install_db
+
+fi
 
