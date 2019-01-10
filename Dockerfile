@@ -6,6 +6,7 @@ MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 # OTRS_INSTALL=no ; nadpisuje katalog i używa bazy mysql
 ENV OTRS_INSTALL=yes
 ENV OTRS_VERSION=6.0.15
+ENV DB_ROOT_PASSWORD=DGdre.ds#$34
 
 RUN apt-get update && \
     apt-get install -y supervisor \
@@ -34,7 +35,7 @@ COPY mysql.sh /
 RUN chmod 755 /mysql.sh && \ 
 	/mysql.sh
 
-COPY otrs.cnf /etc/mysql/conf.d/
+
 
 #
 # OTRS
