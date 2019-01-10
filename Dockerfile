@@ -17,7 +17,7 @@ RUN apt-get update && \
     libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl \
     libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
-    libtemplate-perl mariadb-server cron ssmtp apache2 rsyslog curl unzip
+    libtemplate-perl mariadb-server cron ssmtp apache2 rsyslog curl unzip gzip tar bzip2
 
 RUN mkdir -p /var/run/mysqld && \ 
 	chmod 777 /var/run/mysqld && \
