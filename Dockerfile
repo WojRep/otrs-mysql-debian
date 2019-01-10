@@ -40,8 +40,7 @@ RUN chmod 755 /mysql.sh && \
 
 COPY otrs_install.sh /
 RUN chmod 755 /otrs_install.sh && \
-	usermod -aG www-data otrs && \
-	/otrs_install.sh
+		/otrs_install.sh
 
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh && \
@@ -49,6 +48,7 @@ RUN chmod 755 /otrs.sh && \
 
 RUN cd /opt/otrs && \ 
 	useradd -b /opt/otrs otrs && \
+	usermod -aG www-data otrs && \
 	bin/otrs.SetPermissions.pl
 
 EXPOSE 80
