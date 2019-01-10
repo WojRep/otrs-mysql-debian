@@ -37,7 +37,7 @@ RUN chmod 755 /mysql.sh && \
 #
 # OTRS
 
-COPY otrs_install.sh
+COPY otrs_install.sh /
 RUN chmod 755 /otrs_install.sh && \
 	/otrs_install.sh
 
