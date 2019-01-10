@@ -5,6 +5,7 @@ MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 # OTRS_INSTALL=yes ; tylko instaluje gołego OTRS
 # OTRS_INSTALL=no ; nadpisuje katalog i używa bazy mysql
 ENV OTRS_INSTALL=no
+ENV OTRS_VERSION=6.0.15
 
 RUN apt-get update && \
     apt-get install -y supervisor \
@@ -37,8 +38,10 @@ RUN chmod 755 /mysql.sh && \
 # OTRS
 
 RUN mkdir -p /opt/otrs &&\
-	curl -o /opt/otrs-6.0.15.zip http://ftp.otrs.org/pub/otrs/otrs-6.0.15.zip && \
-	unzip otrs-6.0.15.zip
+	curl -o /opt/otrs-$OTRS_VERSION.zip http://ftp.otrs.org/pub/otrs/otrs-$OTRS_VERSION.zip && \
+	unzip otrs-$OTRS_VERSION.zip && \
+	rm /otrs-$OTRS_VERSION.zip && \
+	mv /otrs-$OTRS_VERSION /opt/
 
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh && \
