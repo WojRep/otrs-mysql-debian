@@ -37,11 +37,9 @@ RUN chmod 755 /mysql.sh && \
 #
 # OTRS
 
-RUN mkdir -p /opt/otrs &&\
-	curl -o /opt/otrs-$OTRS_VERSION.zip http://ftp.otrs.org/pub/otrs/otrs-$OTRS_VERSION.zip && \
-	unzip otrs-$OTRS_VERSION.zip && \
-	rm /otrs-$OTRS_VERSION.zip && \
-	mv /otrs-$OTRS_VERSION /opt/
+COPY otrs_install.sh
+RUN chmod 755 /otrs_install.sh && \
+	/otrs_install.sh
 
 COPY otrs.sh /
 RUN chmod 755 /otrs.sh && \
