@@ -4,7 +4,7 @@ MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 
 # OTRS_INSTALL=yes ; tylko instaluje gołego OTRS
 # OTRS_INSTALL=no ; nadpisuje katalog i używa bazy mysql
-ENV OTRS_INSTALL=no
+ENV OTRS_INSTALL=yes
 ENV OTRS_VERSION=6.0.15
 
 RUN apt-get update && \
