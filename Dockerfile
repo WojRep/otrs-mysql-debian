@@ -34,6 +34,7 @@ COPY mysql.sh /
 RUN chmod 755 /mysql.sh && \ 
 	/mysql.sh
 
+COPY otrs.cnf /etc/mysql/conf.d/
 
 #
 # OTRS
