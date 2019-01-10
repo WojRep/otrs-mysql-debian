@@ -46,11 +46,7 @@ COPY otrs.sh /
 RUN chmod 755 /otrs.sh && \
 	/otrs.sh
 
-RUN cd /opt/otrs && \ 
-	useradd -b /opt/otrs otrs && \
-	usermod -aG www-data otrs && \
-	cd /opt/otrs && \
-	bin/otrs.SetPermissions.pl
+
 
 EXPOSE 80
 CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
