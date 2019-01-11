@@ -1,11 +1,7 @@
 #!/bin/bash
 #
-
-
 useradd -b /opt/otrs otrs
 usermod -aG www-data otrs
-cd /opt/otrs
-bin/otrs.SetPermissions.pl
 #
 ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/sites-enabled/zzz_otrs.conf
 #
@@ -16,7 +12,11 @@ a2enmod headers
 #
 cd /opt/otrs/var/cron
 ls -la
-#su -c "for foo in *.dist; do cp $foo `basename $foo .dist`; done" -s /bin/bash otrs
+for foo in *.dist; do cp $foo `basename $foo .dist`; done
+#
+cd /opt/otrs
+bin/otrs.SetPermissions.pl
+#
 /opt/otrs/bin/Cron.sh start otrs
 su -c "/opt/otrs/bin/otrs.Daemon.pl start" -s /bin/bash otrs
 #
