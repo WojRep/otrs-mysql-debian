@@ -12,6 +12,7 @@ if [ "$OTRS_INSTALL" == "yes"  ]; then
 #	/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=root &
 /usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=mysql &
 
+mysql_upgrade
 
 	while :
 	 do
