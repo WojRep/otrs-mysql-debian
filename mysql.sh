@@ -5,10 +5,11 @@
 if [ "$OTRS_INSTALL" == "yes"  ]; then
 	rm -rf /var/lib/mysql
 	mkdir -p /var/lib/mysql
+
+#	mysql_install_db
+	mysqld --initialize-insecure --user=mysql --datadir=/var/lib/mysql
+#
 	touch /var/lib/mysql/firsttime
-	mysql_install_db
-
-
 #	/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=root &
 /usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=mysql &
 
