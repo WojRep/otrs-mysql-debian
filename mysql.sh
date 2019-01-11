@@ -13,9 +13,8 @@ if [ "$OTRS_INSTALL" == "yes"  ]; then
 	 do
 	  if [ -e "/var/run/mysqld/mysqld.pid" ]; then
 		echo $DB_ROOT_PASSWORD
-		echo "UPDATE mysql.user SET plugin = '';FLUSH PRIVILEGES;"| mysql
 		echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT_PASSWORD';GRANT ALL PRIVILEGES ON *.* TO 'root’@'localhost' IDENTIFIED BY '$DB_ROOT_PASSWORD';FLUSH PRIVILEGES;"| mysql
-
+		echo "UPDATE mysql.user SET plugin = '';FLUSH PRIVILEGES;"| mysql
    	 if [ $? = 0 ]; then
   	      break
  	   fi
