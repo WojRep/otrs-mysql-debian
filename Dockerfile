@@ -18,8 +18,16 @@ RUN apt-get update && \
     libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl \
     libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
     libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
-    libtemplate-perl mariadb-server cron ssmtp apache2 rsyslog curl unzip gzip tar bzip2 libcrypt-ssleay-perl libdatetime-perl \
-	libauthen-ntlm-perl
+    libtemplate-perl cron ssmtp apache2 rsyslog curl unzip gzip tar bzip2 libcrypt-ssleay-perl libdatetime-perl \
+	libauthen-ntlm-perl wget
+
+
+RUN wget http://repo.mysql.com/mysql-apt-config_0.8.9-1_all.deb && \
+	dpkg -i mysql-apt-config_0.8.9-1_all.deb && \
+	apt-get update && \
+    apt-get install -y mysql-server
+
+
 
 RUN mkdir -p /var/run/mysqld && \ 
 	chmod 777 /var/run/mysqld && \

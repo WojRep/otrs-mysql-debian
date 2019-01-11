@@ -15,6 +15,7 @@ a2enmod filter
 a2enmod headers
 #
 cd /opt/otrs/var/cron
+ls -la
 su -c "for foo in *.dist; do cp $foo `basename $foo .dist`; done" -s /bin/bash otrs
 /opt/otrs/bin/Cron.sh start otrs
 su -c "/opt/otrs/bin/otrs.Daemon.pl start" -s /bin/bash otrs

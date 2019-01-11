@@ -9,15 +9,17 @@ if [ "$OTRS_INSTALL" == "yes"  ]; then
 	mysql_install_db
 
 
-	/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=root &
+#	/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=root &
+/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=mysql &
 
 
 	while :
 	 do
 	  if [ -e "/var/run/mysqld/mysqld.pid" ]; then
+		echo $DB_ROOT_PASSWORD
 		mysqladmin -u root password '$DB_ROOT_PASSWORD'
-		mysqladmin -u root -h localhost password '$DB_ROOT_PASSWORD'
-		echo "UPDATE mysql.user SET plugin = '' WHERE user = 'root';" | mysql -uroot -hlocalhost -p$DB_ROOT_PASSWORD
+		#mysqladmin -u root -h localhost password '$DB_ROOT_PASSWORD'
+		#echo "UPDATE mysql.user SET plugin = '' WHERE user = 'root';" | mysql -uroot -hlocalhost -p$DB_ROOT_PASSWORD
    	 if [ $? = 0 ]; then
   	      break
  	   fi
@@ -26,7 +28,7 @@ if [ "$OTRS_INSTALL" == "yes"  ]; then
 	  sleep 2
 	done
 	
-	service mariadb stop
+	#service mariadb stop
 
 
 fi
