@@ -14,7 +14,7 @@ if [ "$OTRS_INSTALL" == "yes"  ]; then
 	mysqld --initialize-insecure --user=mysql --datadir=/var/lib/mysql
 	touch /var/lib/mysql/firsttime
 	echo "Starting MySQLd" >> /tmp/mysql.log
-	/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=mysql &
+	#/usr/sbin/mysqld --pid-file=/var/run/mysqld/mysqld.pid --user=mysql &
 	sleep 10
 	while :
 	 do
