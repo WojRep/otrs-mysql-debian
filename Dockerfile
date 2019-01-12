@@ -11,7 +11,7 @@ ENV TIMEZONE=UTC
 
 
 RUN apt-get update && \
-    apt-get install -y supervisor lsb-release gnupg wget\
+    apt-get install -y supervisor lsb-release gnupg coreutils wget\
     apt-utils \
     libterm-readline-perl-perl && \
     apt-get install -y locales && \
