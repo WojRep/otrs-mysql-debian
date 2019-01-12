@@ -9,11 +9,6 @@ a2enmod perl
 a2enmod deflate
 a2enmod filter
 a2enmod headers
-#
-cd /opt/otrs/var/cron
-ls -la
-for foo in *.dist; do cp $foo `basename $foo .dist`; done
-#
 cd /opt/otrs
 bin/otrs.SetPermissions.pl
 
