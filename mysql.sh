@@ -20,13 +20,14 @@ if [ "$OTRS_INSTALL" == "yes"  ]; then
 	 do
 	  if [ -e "/var/run/mysqld/mysqld.pid" ]; then
 		echo "/var/run/mysqld/mysqld.pid" >> /tmp/mysql.log
+		cat /var/run/mysqld/mysqld.pid >> /tmp/mysql.log
 		echo "Start update privileges and set root password" >> /tmp/mysql.log
-		echo "USE mysql;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT_PASSWORD';FLUSH PRIVILEGES;"| mysql
-		echo "UPDATE mysql.user SET plugin = 'mysql_native_password';FLUSH PRIVILEGES;"| mysql
-		echo "UPDATE mysql.user SET authentication_string = PASSWORD('$DB_ROOT_PASSWORD') WHERE User = 'root';FLUSH PRIVILEGES;"| mysql
-		#echo "USE mysql;GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '$DB_ROOT_PASSWORD';FLUSH PRIVILEGES;"| mysql
+		echo "USE mysql;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT_PASSWORD';FLUSH PRIVILEGES;"| mysql >> /tmp/mysql.log
+		echo "UPDATE mysql.user SET plugin = 'mysql_native_password';FLUSH PRIVILEGES;"| mysql >> /tmp/mysql.log
+		echo "UPDATE mysql.user SET authentication_string = PASSWORD('$DB_ROOT_PASSWORD') WHERE User = 'root';FLUSH PRIVILEGES;"| mysql >> /tmp/mysql.log
+		#echo "USE mysql;GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '$DB_ROOT_PASSWORD';FLUSH PRIVILEGES;"| mysql >> /tmp/mysql.log
    	 if [ $? = 0 ]; then
-		  echo "braek" >> /tmp/mysql.log
+		  echo "break" >> /tmp/mysql.log
   	      break
  	   fi
  	   echo "Change password failed. retry"
