@@ -8,7 +8,6 @@ echo "#################################"
 echo "Start mysql.sh" > /tmp/mysql.log
 if [ "$OTRS_INSTALL" == "yes"  ]; then
 	echo "OTRS_INSTALL=$OTRS_INSTALL" >> /tmp/mysql.log
-	rm -rf /var/lib/mysql
 	mkdir -p /var/lib/mysql
 	echo "Initializing MySQL" >> /tmp/mysql.log
 	mysqld --initialize-insecure --user=mysql --datadir=/var/lib/mysql
