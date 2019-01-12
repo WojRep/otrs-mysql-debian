@@ -10,8 +10,10 @@ ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/sites-enabled/zz
 cd /opt/otrs
 bin/otrs.SetPermissions.pl
 #
+if [ "$OTRS_INSTALL" == "yes"  ]; then
 /opt/otrs/bin/Cron.sh start otrs
 su -c "/opt/otrs/bin/otrs.Daemon.pl start" -s /bin/bash otrs
+fi
 #
 #
 while true
