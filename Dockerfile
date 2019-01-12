@@ -37,15 +37,13 @@ COPY run.sh /
 RUN chmod 755 /mysql.sh && \
 	chmod 755 /run.sh
 
-
-
+COPY otrs_install.sh /
+RUN chmod 755 /otrs_install.sh
 
 #
 # OTRS
 
-COPY otrs_install.sh /
-RUN chmod 755 /otrs_install.sh && \
-		/otrs_install.sh
+
 VOLUME /opt/otrs
 
 RUN mkdir -p /opt/otrs-backup 

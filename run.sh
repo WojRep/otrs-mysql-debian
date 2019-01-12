@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+/otrs_install.sh
+#
 ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/sites-enabled/zzz_otrs.conf
 #
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf &
