@@ -60,7 +60,8 @@ COPY otrs.sh /
 RUN chmod 755 /otrs.sh && \
 	/otrs.sh
 
-RUN mkdir -p /opt/otrs-backup &&\ chown otrs:www-data /opt/otrs-backup
+RUN mkdir -p /opt/otrs-backup 
+
 VOLUME /opt/otrs-backup
 
 EXPOSE 80
