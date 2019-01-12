@@ -8,8 +8,7 @@ ENV OTRS_INSTALL=yes
 ENV OTRS_VERSION=6.0.15
 ENV DB_ROOT_PASSWORD=DGdre.ds#$34
 ENV TIMEZONE=UTC
-RUN mkdir -p /var/log
-VOLUME /var/log
+
 
 RUN apt-get update && \
     apt-get install -y supervisor lsb-release gnupg wget\
@@ -61,7 +60,8 @@ COPY otrs.sh /
 RUN chmod 755 /otrs.sh && \
 	/otrs.sh
 
-
+RUN mkdir -p /opt/otrs-backup &&\ chown otrs:www-data /opt/otrs-backup
+VOLUME /opt/otrs-backup
 
 EXPOSE 80
 CMD /run.sh
