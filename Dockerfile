@@ -47,9 +47,6 @@ COPY otrs_install.sh /
 RUN chmod 755 /otrs_install.sh && \
 		/otrs_install.sh
 VOLUME /opt/otrs
-COPY otrs.sh /
-RUN chmod 755 /otrs.sh && \
-	/otrs.sh
 
 RUN mkdir -p /opt/otrs-backup 
 
