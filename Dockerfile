@@ -7,6 +7,8 @@ MAINTAINER „Wojciech Repinski” <tech@actuna.com>
 ENV OTRS_INSTALL=yes
 ENV OTRS_VERSION=6.0.15
 ENV DB_ROOT_PASSWORD=DGdre.ds#$34
+ENV TIMEZONE=UTC
+VOLUME /var/log
 
 RUN apt-get update && \
     apt-get install -y supervisor lsb-release gnupg wget\
