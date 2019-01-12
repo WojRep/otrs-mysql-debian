@@ -28,16 +28,7 @@ RUN apt-get update && \
     libtemplate-perl cron ssmtp apache2 rsyslog curl unzip gzip tar bzip2 libcrypt-ssleay-perl libdatetime-perl \
 	libauthen-ntlm-perl 
 
-#
-#
-#
-
-#RUN mkdir -p /var/run/mysqld && \ 
-#	chmod 777 /var/run/mysqld && \
-#	chmod +t /var/run/mysqld
-
 COPY etc /etc/
-
 
 VOLUME /var/lib/mysql
 
@@ -45,7 +36,7 @@ COPY mysql.sh /
 COPY run.sh /
 RUN chmod 755 /mysql.sh && \
 	chmod 755 /run.sh
-#	/mysql.sh
+
 
 
 
