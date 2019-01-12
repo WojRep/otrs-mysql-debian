@@ -8,7 +8,7 @@ curl -o /opt/otrs-$OTRS_VERSION.zip http://ftp.otrs.org/pub/otrs/otrs-$OTRS_VERS
 
 cd /opt
 
-unzip otrs-$OTRS_VERSION.zip
+unzip otrs-$OTRS_VERSION.zip >> /dev/null
 
 rm otrs-$OTRS_VERSION.zip 
 
