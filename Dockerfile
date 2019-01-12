@@ -39,6 +39,7 @@ COPY etc /etc/
 
 VOLUME /var/lib/mysql
 COPY mysql.sh /
+COPY run.sh /
 RUN chmod 755 /mysql.sh && \
 	chmod 755 /run.sh
 #	/mysql.sh
