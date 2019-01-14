@@ -32,6 +32,11 @@ COPY etc /etc/
 
 VOLUME /var/lib/mysql
 
+RUN mkdir -p /opt/otrs && \
+	useradd -b /opt/otrs otrs && \
+	usermod -aG www-data otrs && \
+	usermod -aG otrs www-data 
+
 COPY mysql.sh /
 COPY run.sh /
 RUN chmod 755 /mysql.sh && \

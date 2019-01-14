@@ -1,10 +1,6 @@
 #!/bin/bash
 #
-mkdir -p /opt/otrs
-useradd -b /opt/otrs otrs
-usermod -aG www-data otrs
-usermod -aG otrs www-data
-#
+
 if [ "$OTRS_INSTALL" == "yes"  ]; then
 
 curl -o /opt/otrs-$OTRS_VERSION.zip http://ftp.otrs.org/pub/otrs/otrs-$OTRS_VERSION.zip
