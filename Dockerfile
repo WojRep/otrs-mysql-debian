@@ -29,6 +29,8 @@ RUN apt-get update && \
 	libauthen-ntlm-perl 
 
 COPY etc /etc/
+COPY .htaccess /var/www/html/
+RUN chmod 644 /var/www/html/.htaccess
 
 VOLUME /var/lib/mysql
 
